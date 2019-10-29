@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  influxdb:
+    image: "influxdb:latest"
+    hostname: "influxdb"
+    networks:
+    - net_1 
+    environment:
+    - "INFLUXDB_DB=network_latency"
+
+  telegraf:
+    image: "telegraf:latest"
+    hostname: "telegraf"
+    networks:
+    - net_1 
+    volumes:
+    - "./config/telegraf:/etc/telegraf:ro"
+    depends_on:
+    - "influxdb"
+
+networks:
+  net_1:
