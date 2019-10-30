@@ -17,8 +17,7 @@ services:
     - net_1 
     volumes:
     - "./config/telegraf:/etc/telegraf:ro"
-    depends_on:
-    - "influxdb"
+    - "./entrypoint_telegraf.sh:/entrypoint.sh:ro"
 
 networks:
   net_1:

@@ -8,10 +8,8 @@ Track network latency with Telegraf, InfluxDB and Grafana
 * Check if telegraf agent is sending data to influxdb
 
 ```
-$ docker exec -it <container_id> influx -database 'network_latency'
-Connected to http://localhost:8086 version 1.7.6
-InfluxDB shell version: 1.7.6
-Enter an InfluxQL query
+$ docker-compose exec influxdb influx -database 'network_latency'
+[...]
 > select url,average_response_ms from ping limit 2 ;
 name: ping
 time                url         average_response_ms
@@ -20,4 +18,18 @@ time                url         average_response_ms
 1572377482000000000 grafana.com 6.335
 ```
 
+* Ensure that influxdb is up and running
+
+```
+$ curl -sL -I http://influxdb:8086/ping
+# or
+$ curl -sL -I http://localhost:8086/ping
+
+```
+
+* 
+
 ## Resources
+
+* https://github.com/influxdata/telegraf/tree/master/plugins/inputs/ping
+* https://docs.influxdata.com/influxdb/v1.7/tools/api/#ping-http-endpoint
