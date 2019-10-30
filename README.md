@@ -3,6 +3,13 @@ Track network latency with Telegraf, InfluxDB and Grafana
 
 ## Usage
 
+```
+git clone git@github.com:mbelloiseau/network-latency.git
+cd network-latency
+docker-compose up -d
+docker-compose logs
+```
+
 ## Tips
 
 * Check if telegraf agent is sending data to influxdb
@@ -27,9 +34,8 @@ $ curl -sL -I http://localhost:8086/ping
 
 ```
 
-* 
-
 ## Resources
 
 * https://github.com/influxdata/telegraf/tree/master/plugins/inputs/ping
 * https://docs.influxdata.com/influxdb/v1.7/tools/api/#ping-http-endpoint
+* https://grafana.com/docs/administration/provisioning/
