@@ -19,5 +19,18 @@ services:
     - "./config/telegraf:/etc/telegraf:ro"
     - "./entrypoint_telegraf.sh:/entrypoint.sh:ro"
 
+  grafana:
+    image: "grafana/grafana:latest"
+    hostname: "grafana"
+    networks:
+    - net_1
+    ports:
+    - "3000:3000"
+    volumes:
+    - "./config/grafana/provisioning:/etc/grafana/provisioning"
+    environment:
+    - "GF_SECURITY_ADMIN_PASSWORD=CHANGEME"
+    - "GF_AUTH_ANONYMOUS_ENABLED=true"
+
 networks:
   net_1:

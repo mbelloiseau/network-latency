@@ -1,0 +1,30 @@
+apiVersion: 1
+
+deleteDatasources:
+  - name: InfluxDB 
+    orgId: 1
+
+datasources:
+- name: InfluxDB 
+  type: influxdb 
+  access: proxy
+  orgId: 1
+  url: http://influxdb:8086
+  password:
+  user:
+  database: network_latency 
+  basicAuth: false 
+  basicAuthUser: admin
+  basicAuthPassword: foobar
+  withCredentials:
+  isDefault: true
+  jsonData:
+     graphiteVersion: "1.1"
+     tlsAuth: false
+     tlsAuthWithCACert: false
+  secureJsonData:
+    tlsCACert: "..."
+    tlsClientCert: "..."
+    tlsClientKey: "..."
+  version: 1
+  editable: true

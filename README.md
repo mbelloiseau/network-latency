@@ -4,10 +4,10 @@ Track network latency with Telegraf, InfluxDB and Grafana
 ## Usage
 
 ```
-git clone git@github.com:mbelloiseau/network-latency.git
-cd network-latency
-docker-compose up -d
-docker-compose logs
+$ git clone git@github.com:mbelloiseau/network-latency.git
+$ cd network-latency
+$ docker-compose up -d
+$ docker-compose logs
 ```
 
 ## Tips
