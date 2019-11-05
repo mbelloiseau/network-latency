@@ -5,6 +5,8 @@ services:
   influxdb:
     image: "influxdb:latest"
     hostname: "influxdb"
+    volumes:
+    - "influxdb:/var/lib/influxdb"
     networks:
     - net_1 
     environment:
@@ -34,3 +36,5 @@ services:
 
 networks:
   net_1:
+volumes:
+  influxdb:
