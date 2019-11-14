@@ -1,6 +1,11 @@
 # network-latency
 Track network latency with Telegraf, InfluxDB and Grafana
 
+## Dependencies
+
+* [docker](https://docs.docker.com/install/)
+* [docker-composer](https://docs.docker.com/compose/install/)
+
 ## Usage
 
 ```
