@@ -14,306 +14,28 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 1,
-  "id": 2,
-  "iteration": 1571520254689,
+  "graphTooltip": 0,
+  "iteration": 1575203824841,
   "links": [],
   "panels": [
     {
       "aliasColors": {
-        "Average": "semi-dark-blue",
-        "Max": "dark-blue",
-        "Min": "super-light-blue",
-        "Packet loss": "dark-red"
+        "average": "light-blue",
+        "max": "semi-dark-green",
+        "maximum": "semi-dark-blue",
+        "minimum": "rgba(192, 216, 255, 0.62)",
+        "packet loss": "dark-red"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "fill": 1,
-      "fillGradient": 0,
+      "datasource": null,
+      "fill": 0,
+      "fillGradient": 1,
       "gridPos": {
-        "h": 12,
-        "w": 8,
+        "h": 14,
+        "w": 12,
         "x": 0,
-        "y": 0
-      },
-      "id": 2,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "maxPerRow": 3,
-      "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "repeat": "RemoteHost",
-      "repeatDirection": "h",
-      "scopedVars": {
-        "RemoteHost": {
-          "selected": true,
-          "text": "1.1.1.1",
-          "value": "1.1.1.1"
-        }
-      },
-      "seriesOverrides": [
-        {
-          "alias": "Packet loss",
-          "bars": true,
-          "lines": false,
-          "pointradius": 1,
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "Average",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=~",
-              "value": "/^$RemoteHost$/"
-            }
-          ]
-        },
-        {
-          "alias": "Min",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "minimum_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "min"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=~",
-              "value": "/^$RemoteHost$/"
-            }
-          ]
-        },
-        {
-          "alias": "Max",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "maximum_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=~",
-              "value": "/^$RemoteHost$/"
-            }
-          ]
-        },
-        {
-          "alias": "Packet loss",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "D",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "percent_packet_loss"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=~",
-              "value": "/^$RemoteHost$/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "$RemoteHost",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "ms",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "percent",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Average": "semi-dark-blue",
-        "Max": "dark-blue",
-        "Min": "super-light-blue",
-        "Packet loss": "dark-red"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 12,
-        "w": 8,
-        "x": 8,
         "y": 0
       },
       "id": 3,
@@ -323,15 +45,13 @@
         "current": false,
         "max": true,
         "min": true,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
       },
       "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "maxPerRow": 3,
+      "linewidth": 2,
+      "maxPerRow": 2,
       "nullPointMode": "connected",
       "options": {
         "dataLinks": []
@@ -340,23 +60,33 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
+      "repeat": "Host",
       "repeatDirection": "h",
-      "repeatIteration": 1571520254689,
-      "repeatPanelId": 2,
       "scopedVars": {
-        "RemoteHost": {
+        "Host": {
           "selected": true,
-          "text": "lemonde.fr",
-          "value": "lemonde.fr"
+          "text": "grafana.com",
+          "value": "grafana.com"
         }
       },
       "seriesOverrides": [
         {
-          "alias": "Packet loss",
-          "bars": true,
+          "alias": "max",
+          "fillBelowTo": "min",
+          "lines": false
+        },
+        {
+          "alias": "min",
+          "lines": false
+        },
+        {
+          "alias": "average",
+          "lines": true
+        },
+        {
+          "alias": "packet loss",
           "lines": false,
-          "pointradius": 1,
+          "points": true,
           "yaxis": 2
         }
       ],
@@ -365,7 +95,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Average",
+          "alias": "min",
           "groupBy": [
             {
               "params": [
@@ -389,13 +119,13 @@
             [
               {
                 "params": [
-                  "average_response_ms"
+                  "minimum_response_ms"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "min"
               }
             ]
           ],
@@ -403,12 +133,12 @@
             {
               "key": "url",
               "operator": "=~",
-              "value": "/^$RemoteHost$/"
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Min",
+          "alias": "max",
           "groupBy": [
             {
               "params": [
@@ -432,13 +162,13 @@
             [
               {
                 "params": [
-                  "minimum_response_ms"
+                  "maximum_response_ms"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "min"
+                "type": "max"
               }
             ]
           ],
@@ -446,12 +176,12 @@
             {
               "key": "url",
               "operator": "=~",
-              "value": "/^$RemoteHost$/"
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Max",
+          "alias": "average",
           "groupBy": [
             {
               "params": [
@@ -475,13 +205,13 @@
             [
               {
                 "params": [
-                  "maximum_response_ms"
+                  "average_response_ms"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "max"
+                "type": "mean"
               }
             ]
           ],
@@ -489,12 +219,12 @@
             {
               "key": "url",
               "operator": "=~",
-              "value": "/^$RemoteHost$/"
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Packet loss",
+          "alias": "packet loss",
           "groupBy": [
             {
               "params": [
@@ -532,7 +262,7 @@
             {
               "key": "url",
               "operator": "=~",
-              "value": "/^$RemoteHost$/"
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -541,13 +271,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "$RemoteHost",
+      "title": "$Host",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -559,7 +288,7 @@
       "yaxes": [
         {
           "format": "ms",
-          "label": null,
+          "label": "Latency",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -567,7 +296,7 @@
         },
         {
           "format": "percent",
-          "label": null,
+          "label": "Packet loss",
           "logBase": 1,
           "max": null,
           "min": "0",
@@ -581,20 +310,22 @@
     },
     {
       "aliasColors": {
-        "Average": "semi-dark-blue",
-        "Max": "dark-blue",
-        "Min": "super-light-blue",
-        "Packet loss": "dark-red"
+        "average": "light-blue",
+        "max": "semi-dark-green",
+        "maximum": "semi-dark-blue",
+        "minimum": "rgba(192, 216, 255, 0.62)",
+        "packet loss": "dark-red"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "fill": 1,
-      "fillGradient": 0,
+      "datasource": null,
+      "fill": 0,
+      "fillGradient": 1,
       "gridPos": {
-        "h": 12,
-        "w": 8,
-        "x": 16,
+        "h": 14,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
       "id": 4,
@@ -604,15 +335,13 @@
         "current": false,
         "max": true,
         "min": true,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
       },
       "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "maxPerRow": 3,
+      "linewidth": 2,
+      "maxPerRow": 2,
       "nullPointMode": "connected",
       "options": {
         "dataLinks": []
@@ -623,21 +352,31 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1571520254689,
-      "repeatPanelId": 2,
+      "repeatIteration": 1575203824841,
+      "repeatPanelId": 3,
       "scopedVars": {
-        "RemoteHost": {
+        "Host": {
           "selected": true,
-          "text": "oglobo.globo.com",
-          "value": "oglobo.globo.com"
+          "text": "one.one.one.one",
+          "value": "one.one.one.one"
         }
       },
       "seriesOverrides": [
         {
-          "alias": "Packet loss",
-          "bars": true,
-          "lines": false,
-          "pointradius": 1,
+          "alias": "max",
+          "fillBelowTo": "min",
+          "lines": false
+        },
+        {
+          "alias": "min",
+          "lines": false
+        },
+        {
+          "alias": "average",
+          "lines": true
+        },
+        {
+          "alias": "packet loss",
           "yaxis": 2
         }
       ],
@@ -646,7 +385,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Average",
+          "alias": "min",
           "groupBy": [
             {
               "params": [
@@ -670,13 +409,13 @@
             [
               {
                 "params": [
-                  "average_response_ms"
+                  "minimum_response_ms"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "min"
               }
             ]
           ],
@@ -684,12 +423,12 @@
             {
               "key": "url",
               "operator": "=~",
-              "value": "/^$RemoteHost$/"
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Min",
+          "alias": "max",
           "groupBy": [
             {
               "params": [
@@ -713,13 +452,13 @@
             [
               {
                 "params": [
-                  "minimum_response_ms"
+                  "maximum_response_ms"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "min"
+                "type": "max"
               }
             ]
           ],
@@ -727,12 +466,12 @@
             {
               "key": "url",
               "operator": "=~",
-              "value": "/^$RemoteHost$/"
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Max",
+          "alias": "average",
           "groupBy": [
             {
               "params": [
@@ -756,13 +495,13 @@
             [
               {
                 "params": [
-                  "maximum_response_ms"
+                  "average_response_ms"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "max"
+                "type": "mean"
               }
             ]
           ],
@@ -770,12 +509,12 @@
             {
               "key": "url",
               "operator": "=~",
-              "value": "/^$RemoteHost$/"
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Packet loss",
+          "alias": "packet loss",
           "groupBy": [
             {
               "params": [
@@ -813,7 +552,7 @@
             {
               "key": "url",
               "operator": "=~",
-              "value": "/^$RemoteHost$/"
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -822,13 +561,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "$RemoteHost",
+      "title": "$Host",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -840,7 +578,7 @@
       "yaxes": [
         {
           "format": "ms",
-          "label": null,
+          "label": "Latency",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -848,7 +586,7 @@
         },
         {
           "format": "percent",
-          "label": null,
+          "label": "Packet loss",
           "logBase": 1,
           "max": null,
           "min": "0",
@@ -861,8 +599,8 @@
       }
     }
   ],
-  "refresh": "30s",
-  "schemaVersion": 18,
+  "refresh": false,
+  "schemaVersion": 20,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -870,22 +608,22 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "All",
+          "text": "grafana.com + one.one.one.one",
           "value": [
-            "$_all"
+            "grafana.com",
+            "one.one.one.one"
           ]
         },
         "datasource": "InfluxDB",
         "definition": "SHOW TAG VALUES WITH KEY = \"url\"",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": null,
         "multi": true,
-        "name": "RemoteHost",
+        "name": "Host",
         "options": [],
         "query": "SHOW TAG VALUES WITH KEY = \"url\"",
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -898,11 +636,10 @@
     ]
   },
   "time": {
-    "from": "now-30m",
-    "to": "now"
+    "from": "2019-12-01T16:25:00.000Z",
+    "to": "2019-12-01T16:35:00.000Z"
   },
   "timepicker": {
-    "hidden": false,
     "refresh_intervals": [
       "5s",
       "10s",
@@ -914,21 +651,10 @@
       "1h",
       "2h",
       "1d"
-    ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
     ]
   },
   "timezone": "",
-  "title": "Network latency",
-  "uid": "xazhLYoZk",
+  "title": "Network Latency",
+  "uid": "pURFhZaWz",
   "version": 1
 }
