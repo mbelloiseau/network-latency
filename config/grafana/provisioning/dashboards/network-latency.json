@@ -14,8 +14,8 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
-  "iteration": 1575203824841,
+  "graphTooltip": 1,
+  "iteration": 1576740990548,
   "links": [],
   "panels": [
     {
@@ -38,6 +38,7 @@
         "x": 0,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "alignAsTable": true,
@@ -64,9 +65,9 @@
       "repeatDirection": "h",
       "scopedVars": {
         "Host": {
-          "selected": true,
-          "text": "grafana.com",
-          "value": "grafana.com"
+          "selected": false,
+          "text": "eugeni.torproject.org",
+          "value": "eugeni.torproject.org"
         }
       },
       "seriesOverrides": [
@@ -299,7 +300,7 @@
           "label": "Packet loss",
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": "0.000001",
           "show": true
         }
       ],
@@ -328,6 +329,7 @@
         "x": 12,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 4,
       "legend": {
         "alignAsTable": true,
@@ -352,13 +354,13 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1575203824841,
+      "repeatIteration": 1576740990548,
       "repeatPanelId": 3,
       "scopedVars": {
         "Host": {
-          "selected": true,
-          "text": "one.one.one.one",
-          "value": "one.one.one.one"
+          "selected": false,
+          "text": "web-fsn-01.torproject.org",
+          "value": "web-fsn-01.torproject.org"
         }
       },
       "seriesOverrides": [
@@ -377,6 +379,8 @@
         },
         {
           "alias": "packet loss",
+          "lines": false,
+          "points": true,
           "yaxis": 2
         }
       ],
@@ -589,7 +593,300 @@
           "label": "Packet loss",
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": "0.000001",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "average": "light-blue",
+        "max": "semi-dark-green",
+        "maximum": "semi-dark-blue",
+        "minimum": "rgba(192, 216, 255, 0.62)",
+        "packet loss": "dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 0,
+      "fillGradient": 1,
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 5,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "maxPerRow": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1576740990548,
+      "repeatPanelId": 3,
+      "scopedVars": {
+        "Host": {
+          "selected": false,
+          "text": "web-fsn-02.torproject.org",
+          "value": "web-fsn-02.torproject.org"
+        }
+      },
+      "seriesOverrides": [
+        {
+          "alias": "max",
+          "fillBelowTo": "min",
+          "lines": false
+        },
+        {
+          "alias": "min",
+          "lines": false
+        },
+        {
+          "alias": "average",
+          "lines": true
+        },
+        {
+          "alias": "packet loss",
+          "lines": false,
+          "points": true,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "min",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "minimum_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "min"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
+        },
+        {
+          "alias": "max",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "maximum_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
+        },
+        {
+          "alias": "average",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
+        },
+        {
+          "alias": "packet loss",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "percent_packet_loss"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$Host",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ms",
+          "label": "Latency",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "percent",
+          "label": "Packet loss",
+          "logBase": 1,
+          "max": null,
+          "min": "0.000001",
           "show": true
         }
       ],
@@ -599,8 +896,8 @@
       }
     }
   ],
-  "refresh": false,
-  "schemaVersion": 20,
+  "refresh": "1m",
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -608,16 +905,16 @@
       {
         "allValue": null,
         "current": {
-          "text": "grafana.com + one.one.one.one",
+          "tags": [],
+          "text": "All",
           "value": [
-            "grafana.com",
-            "one.one.one.one"
+            "$__all"
           ]
         },
         "datasource": "InfluxDB",
         "definition": "SHOW TAG VALUES WITH KEY = \"url\"",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": null,
         "multi": true,
         "name": "Host",
@@ -636,8 +933,8 @@
     ]
   },
   "time": {
-    "from": "2019-12-01T16:25:00.000Z",
-    "to": "2019-12-01T16:35:00.000Z"
+    "from": "now-5m",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -655,6 +952,6 @@
   },
   "timezone": "",
   "title": "Network Latency",
-  "uid": "pURFhZaWz",
-  "version": 1
+  "uid": "DWyOTpfZk",
+  "version": 7
 }

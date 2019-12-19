@@ -1,6 +1,9 @@
 # network-latency
 Track network latency with Telegraf, InfluxDB and Grafana
 
+![Network latency (1)](network_latency_1.png)
+![Network latency (2)](network_latency_2.png)
+
 ## Dependencies
 
 * [docker](https://docs.docker.com/install/)
@@ -8,37 +11,11 @@ Track network latency with Telegraf, InfluxDB and Grafana
 
 ## Usage
 
-```
-$ git clone git@github.com:mbelloiseau/network-latency.git
-$ cd network-latency
-$ docker-compose up -d
-```
-
-Go to [Grafana](http://localhost:3000)
-
-## Tips
-
-* Check if telegraf agent is sending data to influxdb
-
-```
-$ docker-compose exec influxdb influx -database 'network_latency'
-[...]
-> select url,average_response_ms from ping limit 2 ;
-name: ping
-time                url         average_response_ms
-----                ---         -------------------
-1572377472000000000 grafana.com 6.261
-1572377482000000000 grafana.com 6.335
-```
-
-* Ensure that influxdb is up and running
-
-```
-$ curl -sL -I http://influxdb:8086/ping
-# or
-$ curl -sL -I http://localhost:8086/ping
-
-```
+* `git clone git@github.com:mbelloiseau/network-latency.git`
+* `cd network-latency`
+* edit config/telegraf/telegraf.conf and modify **urls**
+* `docker-compose up -d`
+* use your favorite browser and go to [Grafana](http://localhost:3000)
 
 ## Resources
 
