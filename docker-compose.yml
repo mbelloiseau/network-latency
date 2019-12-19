@@ -5,36 +5,36 @@ services:
   influxdb:
     image: "influxdb:latest"
     hostname: "influxdb"
-    volumes:
-    - "influxdb:/var/lib/influxdb"
-    networks:
-    - net_1 
     environment:
     - "INFLUXDB_DB=network_latency"
+    networks:
+    - net_latency
+    volumes:
+    - "influxdb:/var/lib/influxdb"
 
   telegraf:
     image: "telegraf:latest"
     hostname: "telegraf"
     networks:
-    - net_1 
+    - net_latency
     volumes:
     - "./config/telegraf:/etc/telegraf:ro"
-    - "./entrypoint_telegraf.sh:/entrypoint.sh:ro"
+    - "./config/entrypoint_telegraf.sh:/entrypoint.sh:ro"
 
   grafana:
     image: "grafana/grafana:latest"
     hostname: "grafana"
+    environment:
+    - "GF_SECURITY_ADMIN_PASSWORD=CHANGEME"
+    - "GF_AUTH_ANONYMOUS_ENABLED=true"
     networks:
-    - net_1
+    - net_latency
     ports:
     - "3000:3000"
     volumes:
     - "./config/grafana/provisioning:/etc/grafana/provisioning"
-    environment:
-    - "GF_SECURITY_ADMIN_PASSWORD=CHANGEME"
-    - "GF_AUTH_ANONYMOUS_ENABLED=true"
 
 networks:
-  net_1:
+  net_latency:
 volumes:
   influxdb:
